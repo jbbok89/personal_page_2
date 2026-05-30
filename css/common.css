@@ -1,0 +1,7 @@
+/* 기본 설정(모든 태그에 적용) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* width/height 내 padding까지 포함해서 계산 */
+  font-family: sans-serif;
+}

@@ -1,22 +1,28 @@
+.content {
+  display: block; /* 프로젝트 Grid가 정상적으로 한 줄을 다 쓰도록 설정 */
+  width: 100%;
+}
+
 /* 카드 레이아웃 */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px; 
   padding: 60px 40px; 
 }
 
 /* 카드 */
 .card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: 0.3s;
-  text-decoration: none;
-  color: inherit;
   display: flex; 
   flex-direction: column;
   height: 100%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease; /* 💡 변화 대상을 명확히 지정 */
 }
 
 .card:hover {
@@ -32,6 +38,7 @@
 
 /* 카드 텍스트 */
 .card-text {
+  flex-grow: 1;
   background: #111;
   color: white;
   padding: 15px;

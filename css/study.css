@@ -1,0 +1,111 @@
+/* 페이지 제목 */
+.page-title {
+    margin: 60px 40px 40px;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* 각 학습 항목 */
+.study-item {
+    margin: 0 40px;
+    padding: 40px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* 마지막 항목만 선 제거 */
+.study-item:last-child {
+    border-bottom: none;
+}
+
+/* 이미지 + 텍스트 영역 */
+.study-item-inner {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* 좌우 순서 반전 */
+.study-item-rev .study-item-inner {
+    flex-direction: row-reverse;
+}
+
+/* 텍스트 영역 */
+.study-text {
+    flex: 1;
+}
+
+.study-text h2 {
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.study-text p {
+    line-height: 1.7;
+    color: #444;
+}
+
+/* 이미지 영역 */
+.study-img-wrap {
+    flex: 0 0 320px;
+}
+
+.study-img-wrap img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+/* 카테고리 버튼 */
+.study-nav {
+    margin: 0 40px 40px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 40px 60px;
+
+    padding-bottom: 20px;              /* 선과 버튼 간 여백 */
+    border-bottom: 1px solid #e5e7eb;  /* 구분선 */
+}
+
+.study-nav button {
+    padding: 6px 14px;
+    font-size: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.study-nav button:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    color: #111;
+}
+
+.study-nav button.active {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+    color: #111;
+}
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+
+    .study-item-inner,
+    .study-item-rev .study-item-inner {
+        flex-direction: column;
+    }
+
+    .study-img-wrap {
+        flex: none;
+        width: 100%;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+}

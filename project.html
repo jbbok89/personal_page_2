@@ -1,64 +1,41 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Portfolio</title>
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/layout.css">
-  <link rel="stylesheet" href="css/card.css">
+
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/card.css" />
 </head>
 
 <body>
 
+  <!-- 사이드바 -->
   <div class="sidebar">
-  <div class="profile">
-    <h2>Lee Jehui</h2>
-    <p>jbbok89@gmail.com</p>
-  </div>
 
-  <div class="menu">
-  <ul>
-    <li><a href="index.html">Profile</a></li>
-    <li><a href="project.html" class="active">Project</a></li>
-
-    <li>
-      <a href="board_web.html">Study</a>
-      <ul class="sub_menu">
-        <li><a href="board_web.html">Web <span class="count">(1)</span></a></li>
-      </ul>
-    </li>
-  </ul>
-</div>
-</div>
-
-  <div class="content">
-    <div class="grid">
-
-      <a href="p_view_1.html" class="card">
-        <img src="img/project_1.png">
-        <div class="card-text">
-          <h3>PHP 웹사이트구현 및 모의 해킹</h3>
-          <p>웹사이트 구조 학습 및 웹 해킹 실습</p>
-        </div>
-      </a>
-
-      <a href="p_view_2.html" class="card">
-        <img src="img/project_2.png">
-        <div class="card-text">
-          <h3>DevOps CI/CD 파이프라인 구현</h3>
-          <p>DevOps의 전반적인 이해 및 자동화 구축</p>
-        </div>
-      </a>
-
-      <a href="p_view_3.html" class="card">
-        <img src="img/project_3.png">
-        <div class="card-text">
-          <h3>HTML + CSS + JS 홈페이지 제작</h3>
-          <p>HTML + CSS + JS를 기반으로한 웹 페이지 구현</p>
-        </div>
-      </a>
+    <div class="profile">
+      <h2>Lee Jehui</h2>
+      <p>jbbok89@gmail.com</p>
     </div>
+
+    <div class="menu">
+      <ul>
+        <li><a href="index.html">Profile</a></li>
+        <li><a href="project.html" class="active">Project</a></li>
+        <li><a href="study.html">Study</a></li>
+      </ul>
+    </div>
+
   </div>
+
+  <!-- 메인 콘텐츠 -->
+  <div class="content">
+    <div class="grid" id="projectGrid"></div>
+  </div>
+
+  <script src="js/project.js"></script>
 
 </body>
 </html>

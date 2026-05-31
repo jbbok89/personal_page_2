@@ -1,20 +1,27 @@
-/* 전체 페이지 */
+/* layout.css */
+
 body {
-  display: flex; /* 좌(sidebar) + 우(content) */
-  background: #e5e5e5;
+  display: flex;
+  background: white;
+  min-height: 100vh; /* 💡 body가 최소한 화면 전체 높이를 가지도록 설정 */
+  margin: 0;
 }
 
 /* 사이드바 */
 .sidebar {
-  flex: 0 0 30%;   /* 부모 요소(body)의 30% 고정 */
-  min-width: 160px; /* 최소 160px 유지 */
-  max-width: 260px; /* 최대 260px 유지 */
-  height: 100vh; /* 화면 높이 전체 채움 */
+  flex: 0 0 30%;
+  min-width: 160px;
+  max-width: 260px;
+  
+  /* 💡 기존 height: 100vh; 에서 변경 */
+  min-height: 100vh; /* 콘텐츠가 길어져도 사이드바가 바닥까지 내려가도록 */
+  
   background: #111;
   color: white;
-  padding: 30px 20px; /* 위아래 30px, 좌우 20px 여백*/
-  position: sticky;  /* 스크롤해도 화면에 붙어 따라옴 */
-  top: 0;           /* 위쪽으로 고정 */
+  padding: 30px 20px;
+  position: sticky;
+  top: 0;
+  align-self: flex-start; /* 💡 사이드바 자체는 상단에 고정 */
 }
 
 /* 프로필 */
@@ -24,54 +31,32 @@ body {
 }
 
 .profile p {
-  text-align: center;
   font-size: 12px;
   color: #aaa;
 }
 
 /* 메뉴 */
 .menu li {
-  list-style: none; 
+  list-style: none;
   margin: 15px 0;
 }
 
 .menu a {
   color: white;
-  display: block; 
-  text-decoration: none; /* 밑줄 제거 */
-  transition: 0.3s; /* hover 0.3초 지연 */
+  display: block;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-.menu a:hover, .menu a.active {
+.menu a:hover,
+.menu a.active {
   color: gold;
 }
 
-/* 서브 메뉴 */
-.sub_menu {
-  list-style: none;
-  padding-left: 10px;  /* 들여쓰기 */
-  margin-top: 8px;
-}
-
-.sub_menu li {
-  margin: 6px 0;
-}
-
-.sub_menu a {
-  color: #888;
-  font-size: 14px;
-  text-decoration: none; /* 밑줄 제거 */
-  transition: 0.3s; /* hover 0.3초 지연 */
-}
-
-.sub_menu a:hover {
-  color: gold;
-}
-
-/* 콘텐츠 */
+/* 콘텐츠 영역 */
 .content {
-  flex: 1; /* 남은 공간 전부 차지 */
-  padding: 0; 
+  flex: 1;
+  padding: 0;
   margin: 0;
   width: 100%;
 }

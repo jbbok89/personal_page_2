@@ -1,50 +1,105 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/board.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Study</title>
+
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/study.css" />
 </head>
 
 <body>
 
   <!-- 사이드바 -->
   <div class="sidebar">
-  <div class="profile">
-    <h2>Lee Jehui</h2>
-    <p>jbbok89@gmail.com</p>
-  </div>
 
-  <div class="menu">
-  <ul>
-    <li><a href="index.html">Profile</a></li>
-    <li><a href="project.html">Project</a></li>
-
-    <li>
-      <a href="board_web.html">Study</a>
-      <ul class="sub_menu">
-        <li><a href="board_web.html">Web <span class="count">(1)</span></a></li>
-      </ul>
-    </li>
-  </ul>
-</div>
-</div>
-
-  <div class="content">
-    <div class="grid">
-
-      <a href="p_view.html" class="card">
-        <img src="img/project_1.png">
-        <div class="card-text">
-          <h3>SQL Injection</h3>
-          <p>ddd</p>
-        </div>
-    </a>
-
+    <div class="profile">
+      <h2>Lee Jehui</h2>
+      <p>jbbok89@gmail.com</p>
     </div>
+
+    <div class="menu">
+      <ul>
+        <li><a href="index.html">Profile</a></li>
+        <li><a href="project.html">Project</a></li>
+        <li><a href="study.html" class="active">Study</a></li>
+      </ul>
+    </div>
+
   </div>
+
+  <!-- 본문 -->
+  <div class="content">
+
+    <h1 class="page-title">Web Programming Study</h1>
+
+    <!-- 카테고리 버튼 -->
+    <div class="study-nav">
+      <button data-target="html">HTML</button>
+      <button data-target="css">CSS</button>
+      <button data-target="javascript">JavaScript</button>
+    </div>
+
+    <!-- HTML -->
+    <div id="html" class="study-item">
+      <div class="study-item-inner">
+
+        <div class="study-text">
+          <h2>HTML</h2>
+          <p>웹 페이지의 구조를 구성하는 마크업 언어</p>
+          <br>
+          <p>시맨틱 태그, Form 태그, 입력 요소 등에 대해 학습하였다.</p>
+        </div>
+
+        <div class="study-img-wrap">
+          <img src="img/html.png" alt="HTML" />
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CSS -->
+    <div id="css" class="study-item study-item-rev">
+      <div class="study-item-inner">
+
+        <div class="study-text">
+          <h2>CSS</h2>
+          <p>웹 페이지의 디자인과 레이아웃을 담당</p>
+          <br>
+          <p>선택자, Flexbox, Grid, 반응형 웹 디자인을 학습하였다.</p>
+        </div>
+
+        <div class="study-img-wrap">
+          <img src="img/css.png" alt="CSS" />
+        </div>
+
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <div id="javascript" class="study-item">
+      <div class="study-item-inner">
+
+        <div class="study-text">
+          <h2>JavaScript</h2>
+          <p>웹 페이지에 동적인 기능을 추가</p>
+          <br>
+          <p>DOM Manipulation, 이벤트 처리, 객체 및 배열 활용 방법을 학습하였다.</p>
+        </div>
+
+        <div class="study-img-wrap">
+          <img src="img/javascript.png" alt="JavaScript" />
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/study.js"></script>
 
 </body>
 </html>

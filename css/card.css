@@ -1,5 +1,5 @@
 .content {
-  display: block; /* 프로젝트 Grid가 정상적으로 한 줄을 다 쓰도록 설정 */
+  display: block;
   width: 100%;
 }
 
@@ -22,7 +22,7 @@
   border: 1px solid #e5e7eb;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.3s ease; /* 💡 변화 대상을 명확히 지정 */
+  transition: transform 0.3s ease; 
 }
 
 .card:hover {

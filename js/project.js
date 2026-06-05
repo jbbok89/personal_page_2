@@ -1,4 +1,3 @@
-// 프로젝트 데이터
 const projects = [
     {
         id: 1,
@@ -20,22 +19,15 @@ const projects = [
     }
 ];
 
-// 카드가 들어갈 영역 찾기
+//HTMl 내 (<div id="projectGrid">) 영역 변수에 저장
 const grid = document.getElementById("projectGrid");
 
-// 프로젝트 개수만큼 반복
-projects.forEach(project => {
+projects.forEach(project => { //project 배열 순회
+    const card = document.createElement("a"); //<a> 생성
+    card.href = `project_detail.html?id=${project.id}`; //링크 설정
+    card.className = "card"; //card 클래스 적용 (card.css)
 
-    // <a> 태그 생성
-    const card = document.createElement("a");
-
-    // 링크 설정
-    card.href = `project_detail.html?id=${project.id}`;
-
-    // card 클래스 적용
-    card.className = "card";
-
-    // 카드 내부 내용 생성
+    //<a> 내 아래 코드 삽입
     card.innerHTML = `
         <img src="${project.image}">
         <div class="card-text">
@@ -44,6 +36,5 @@ projects.forEach(project => {
         </div>
     `;
 
-    // 화면에 추가
-    grid.appendChild(card);
+    grid.appendChild(card); //화면 출력
 });

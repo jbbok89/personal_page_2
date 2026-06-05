@@ -86,83 +86,71 @@ const projects = {
     }
 };
 
-//주소창에서 id값('?id=1') 추출
+//URL에서 (예: project_detail.html?id=1) 파라미터 추출
 const params = new URLSearchParams(window.location.search);
-const id = params.get("id"); //파라미터(id) 값(1)을 변수에 저장
+const id = params.get("id"); //파라미터(id) 값(1) 변수에 저장
 
-//파라미터값(1)에 해당하는 객체값(제목, 기간 등)을 변수에 저장
+//파라미터값(1)에 해당하는 porject 배열 내 객체를 변수에 저장
 const project = projects[id];
 
-//파라미터값이 없을 경우
-if (!project) {
-	document.body.innerHTML = "<h1>존재하지 않는 프로젝트입니다.</h1>"; //에러 메시지 반환
-    throw new Error("Invalid Project ID"); //실행 중단 및 에러 발생
-}
-
-//HTML 내 id값에 데이터 입력
+//HTML 내 속성값 입력
 document.getElementById("project-title").textContent = project.title;
-    
 document.getElementById("project-image").src = project.image;
-
 document.getElementById("project-image").alt = project.title;
-
 document.getElementById("project-period").textContent = project.period;
-
 document.getElementById("project-content").textContent = project.content;
 
-//목표 
-const goalList = document.getElementById("project-goals"); //<ul> 태그 찾기
+//목표 섹션
+//HTML 내 (<ul id="project-goals">) 변수에 저장
+const goalList = document.getElementById("project-goals"); 
 
-project.goals.forEach(goal => {
-    const li = document.createElement("li"); //<li> 태그 생성
-    li.textContent = goal; //<li>글내용</li> 설정
-    goalList.appendChild(li); //<ul> 내 <li> 집어넣기
+//project 배열 goals 속성 순회
+project.goals.forEach(goal => { 
+    const li = document.createElement("li"); //<li> 생성
+    li.textContent = goal; //goals 속성값을 <li> 내 삽입
+    goalList.appendChild(li); //<ul> 내 <li> 삽입
 });
 
-//주 역할
+//주 역할 섹션
+//HTMl 내 (<ul id="project-roles">) 변수에 저장
 const roleList = document.getElementById("project-roles");
 
+//project 배열 roles 속성 순회
 project.roles.forEach(role => {
-    const li = document.createElement("li");
-    li.textContent = role;
-    roleList.appendChild(li);
+    const li = document.createElement("li"); //<li> 생성
+    li.textContent = role; //roles 속성값을 <li> 내 삽입
+    roleList.appendChild(li); //<ul> 내 <li> 삽입
 });
 
-//링크
+//링크 섹션
 const linkList = document.getElementById("project-links");
 
 project.links.forEach(item => {
+    const li = document.createElement("li"); //<li> 생성
+    const a = document.createElement("a"); //<a> 생성
 
-    const li = document.createElement("li");
+    a.href = item.url; //주소
+    a.textContent = item.text; //링크에 노출될 문자열
 
-    const a = document.createElement("a"); //<a> 태그 생성
-
-    a.href = item.url; //<a href="url값>
-    a.textContent = item.text; //<a href="...">링크에 노출될 글자</a>
-
-    li.appendChild(a); //<li><a>...<a></li> 
-    
-    linkList.appendChild(li); //<li>를 <ul>에 접어넣음
+    li.appendChild(a); //<li> 내 <a> 삽입
+    linkList.appendChild(li); //<ul> 내 <li> 삽입
 });
 
-// 추가 섹션 (팀원 소개)
-const extraSections = document.getElementById("extra-sections"); //<div id="extra-sections"> 찾기
+// 팀원 소개 섹션
+//HTML 내 (<div id="extra-sections">) 변수에 저장
+const extraSections = document.getElementById("extra-sections");
 
-// 현재 프로젝트 객체에'team' 속성이 존재한다면
-if (project.team) {
-
-    const section =
-        document.createElement("section"); //<section> 태그 생성
-
-    section.className =
-        "detail_section"; //class="detail_section" 부여
-        
+if (project.team) { //현재 project 배열 내 team 속성이 존재한다면
+    const section = document.createElement("section"); //<secrion> 생성
+    section.className = "detail_section"; //class="detail_section" 부여
+    
+    // 입력할 HTML 틀을 변수에 저장
     let html = `
         <h2 class="section_title">팀원 소개</h2>
         <ul class="detail_list">
-    `; // 입력할 HTML 틀 변수에 저장
+    `; 
 	
-		//team 배열을 아래 html 문자열 형태로 반복
+	//team 배열 순회
     project.team.forEach(member => {
 
         html += `
@@ -179,8 +167,8 @@ if (project.team) {
         `;
     });
 
-    html += "</ul>"; //반복이 끝나면 </ul> 태그 닫기 
+    html += "</ul>"; //반복이 끝나면 <ul> 태그 닫음
 
-    section.innerHTML = html; //완성된 HTML 문자열 <section> 태그 내부에 입력
-    extraSections.appendChild(section); //완성된 <section>을 extraSections 내 최종 배치
+    section.innerHTML = html; //완성된 HTML 문자열 <section> 내 삽입
+    extraSections.appendChild(section); //화면 출력
 }

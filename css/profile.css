@@ -4,9 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center; 
-  padding: 60px 20px; /* 위아래 여백을 넉넉히 주어 잘림 방지 */
+  padding: 60px 20px; 
   min-width: 0;
-  min-height: 100vh; /* 💡 최소 높이 유지 */
+  min-height: 100vh; 
 }
 
 /* 프로필 카드 */
@@ -15,7 +15,7 @@
   flex-direction: column;
   max-width: 850px;
   width: 90%; 
-  margin: auto; /* 💡 상하좌우 중앙 정렬 유지 */
+  margin: auto; 
   background: white;
   overflow: hidden;
   border: 1px solid #e5e7eb;
@@ -31,7 +31,7 @@
 
 /* 이미지 */
 .profile-left {
-  flex: 0 0 40%; /* 고정 px 대신 비율(%)을 사용하여 유연하게 대처 */
+  flex: 0 0 40%;
   max-width: 350px;
 }
 
@@ -45,7 +45,7 @@
 /* 텍스트 */
 .profile-right {
   flex: 1;
-  padding: 40px; /* 패딩을 약간 줄여 좁은 화면 대응 */
+  padding: 40px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,9 +96,10 @@
   text-decoration: underline;
 }
 
+/* 반응형 모바일 레이아웃 */
 @media (max-width: 768px) {
   .content {
-    padding: 40px 15px; /* 💡 좁은 화면에서는 주변 여백을 줄여 공간 확보 */
+    padding: 40px 15px;
   }
 
   .profile-main {
@@ -112,7 +113,7 @@
   }
 
   .profile-left img {
-    max-height: 250px; /* 💡 모바일에서 이미지가 차지하는 높이를 줄임 */
+    max-height: 250px; 
     object-fit: cover;
   }
 

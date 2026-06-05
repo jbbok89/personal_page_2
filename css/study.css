@@ -7,8 +7,9 @@
 
 /* 각 학습 항목 */
 .study-item {
-    margin: 0 40px;
-    padding: 40px 0;
+    margin: 0 auto;
+    max-width: 1100px;
+    padding: 50px 40px;
     background: transparent;
     border: none;
     border-bottom: 1px solid #e5e7eb;
@@ -19,21 +20,34 @@
     border-bottom: none;
 }
 
-/* 이미지 + 텍스트 영역 */
+/* 🧱 [구조 변경] 이미지 + 텍스트 영역을 Grid 시스템으로 강제 고정 */
 .study-item-inner {
-    display: flex;
-    align-items: center;
-    gap: 40px;
+    display: grid;
+    /* 💡 글씨 영역은 40%로 줄이고, 나머지를 사진이 차지하게 하여 사진을 더 키웁니다! */
+    grid-template-columns: 40% 1fr; 
+    gap: 50px;                         /* 둘 사이의 간격 균형 조정 */
+    align-items: start;                
+    width: 100%;
 }
 
-/* 좌우 순서 반전 */
+/* 좌우 순서 반전 (그리드 순서 제어) */
 .study-item-rev .study-item-inner {
-    flex-direction: row-reverse;
+    grid-template-columns: 1fr 40%; /* 순서 반전 시 크기 비율 조절 */
+}
+.study-item-rev .study-text {
+    grid-column: 2;                    /* 텍스트를 2번째 칸으로 */
+}
+.study-item-rev .study-img-wrap {
+    grid-column: 1;                    /* 이미지를 1번째 칸으로 */
+    grid-row: 1;
 }
 
 /* 텍스트 영역 */
 .study-text {
-    flex: 1;
+    width: 100%;
+    /* 💡 기존의 flex: 0 0 450px 이나 max-width: 50%가 있다면 충돌을 막기 위해 초기화해줍니다. */
+    flex: none; 
+    max-width: 100%;
 }
 
 .study-text h2 {
@@ -48,25 +62,26 @@
 
 /* 이미지 영역 */
 .study-img-wrap {
-    flex: 0 0 320px;
+    width: 100%;
+    max-width: 600px;               /* 사진이 너무 거대해지는 것 방지 */
 }
 
 .study-img-wrap img {
     width: 100%;
+    height: auto;
     display: block;
     border-radius: 10px;
 }
 
-/* 카테고리 버튼 */
+/* 카테고리 버튼 (기존 유지) */
 .study-nav {
     margin: 0 40px 40px;
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
     margin: 0 40px 60px;
-
-    padding-bottom: 20px;              /* 선과 버튼 간 여백 */
-    border-bottom: 1px solid #e5e7eb;  /* 구분선 */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
 }
 
 .study-nav button {
@@ -92,20 +107,86 @@
     color: #111;
 }
 
-/* 모바일 대응 */
-@media (max-width: 768px) {
+/* 🔗 버튼들을 정렬하기 위한 감싸는 영역 */
+.about-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
 
-    .study-item-inner,
-    .study-item-rev .study-item-inner {
-        flex-direction: column;
+/* 🎯 버튼 스타일 */
+.about-links .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 6px 14px;
+    font-size: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    color: #333;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: center;
+}
+
+.about-links .btn:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+    color: #111;
+}
+
+/* 📱 모바일 반응형 코드 (768px 이하) */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 28px;
+        margin: 40px 20px 20px;
     }
 
-    .study-img-wrap {
-        flex: none;
+    .study-item {
+        margin: 0;
+        padding: 30px 20px;
+    }
+
+    /* 모바일에서는 그리드를 풀고 세로로 정렬 */
+    .study-item-inner,
+    .study-item-rev .study-item-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
         width: 100%;
     }
 
-    .page-title {
-        font-size: 28px;
+    .study-text {
+        width: 100%;
+    }
+    
+    .study-text br {
+        display: none; 
+    }
+
+    .about-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+
+    .about-links .btn {
+        flex: 0 1 auto;
+        width: max-content;
+        padding: 6px 12px;
+    }
+
+    .study-img-wrap {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 5px;
+    }
+
+    .study-img-wrap img {
+        width: 100%;
+        height: auto;
     }
 }

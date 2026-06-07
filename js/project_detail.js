@@ -88,7 +88,7 @@ const projects = {
             },
             {
                 text: "Final Website",
-                url: "#"
+                url: "https://personal-page-2.vercel.app/"
             }
         ]
     }

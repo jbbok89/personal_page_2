@@ -76,15 +76,19 @@ const projects = {
         links: [
             {
                 text: "GitHub - web-programming",
-                url: "https://github.com/jbbok89/web-programming/tree/main"
+                url: "https://github.com/jbbok89/web-programming"
             },
             {
-                text: "Website",
-                url: "https://secure-hub-d97n.vercel.app/"
+                text: "Middle_Website",
+                url: "https://web-programming-seven-chi.vercel.app/"
             },
             {
                 text: "GitHub - SecureHub",
                 url: "https://github.com/jbbok89/SecureHub/"
+            },
+            {
+                text: "Final_Website",
+                url: "https://secure-hub-os35.vercel.app/"
             }
         ]
     }
